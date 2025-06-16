@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIアシスタント チャットボット</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>AIアシスタント</h1>
+            <p>お手続きをサポートいたします</p>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <!-- チャットメッセージがここに表示される -->
+        </div>
+        
+        <div class="chat-input-area" id="chatInputArea">
+            <!-- 入力エリアまたはボタンがここに表示される -->
+        </div>
+        
+        <!-- デバッグパネル（開発用） -->
+        <div class="debug-panel" id="debugPanel" style="display: none;">
+            <h3>デバッグ情報</h3>
+            <div id="debugInfo"></div>
+            <button onclick="toggleDebug()">デバッグ表示切替</button>
+            <button onclick="downloadState()">状態をダウンロード</button>
+        </div>
+    </div>
+
+    <!-- 変換ツール -->
+    <div class="converter-panel" id="converterPanel">
+        <h3>設定変換ツール</h3>
+        <input type="file" id="configFile" accept=".json">
+        <button onclick="convertAndStart()">設定を変換してチャット開始</button>
+        <button onclick="loadTestData()">テストデータで開始</button>
+    </div>
+
+    <script src="embedded-config.js"></script>
+    <script src="converter.js"></script>
+    <script src="improved-converter.js"></script>
+    <script src="detailed-converter.js"></script>
+    <script src="chatbot-engine.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

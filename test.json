@@ -1,0 +1,118 @@
+{
+  "nodes": [
+    {
+      "screen": 1,
+      "navText": "言語を選択してください",
+      "choices": [
+        "日本語",
+        "English",
+        "中文"
+      ],
+      "preNodes": [],
+      "isInputField": false,
+      "conditions": null
+    },
+    {
+      "screen": 2,
+      "navText": "ご希望の取引を選択してください",
+      "choices": [
+        "振込み",
+        "支払い",
+        "預入"
+      ],
+      "preNodes": [
+        {
+          "screen": 1,
+          "choice": null
+        }
+      ],
+      "isInputField": false,
+      "conditions": null
+    },
+    {
+      "screen": 3,
+      "navText": "預入金額を入力してください",
+      "choices": [],
+      "preNodes": [
+        {
+          "screen": 2,
+          "choice": "預入"
+        }
+      ],
+      "isInputField": true,
+      "conditions": [
+        {
+          "field": "transactionType",
+          "value": "deposit",
+          "state": "EQUALS"
+        }
+      ]
+    }
+  ],
+  "codeDefinitions": {
+    "transactionType": [
+      {
+        "label": "振込み",
+        "value": "deposit"
+      },
+      {
+        "label": "支払い",
+        "value": "payment"
+      },
+      {
+        "label": "譲渡",
+        "value": "transfer"
+      }
+    ],
+    "requiredDocument": [
+      {
+        "label": "運転免許証",
+        "value": "driverLisence"
+      },
+      {
+        "label": "パスポート",
+        "value": "passport"
+      },
+      {
+        "label": "マイナンバーカード",
+        "value": "myNumberCard"
+      },
+      {
+        "label": "健康保険証",
+        "value": "healthInsuranceCard"
+      }
+    ]
+  },
+  "domainData": {
+    "transactionType": {
+      "index": 1,
+      "name": "取引番号",
+      "type": "string",
+      "value": ""
+    },
+    "requiredDocument": {
+      "index": 2,
+      "name": "必要書類",
+      "type": "string",
+      "value": ""
+    },
+    "payoutAmount": {
+      "index": 3,
+      "name": "支払金額",
+      "type": "string",
+      "value": ""
+    },
+    "transferAmount": {
+      "index": 4,
+      "name": "譲渡金額",
+      "type": "string",
+      "value": ""
+    },
+    "depositAmount": {
+      "index": 5,
+      "name": "振込金額",
+      "type": "string",
+      "value": ""
+    }
+  }
+}
